@@ -1,3 +1,17 @@
+## Reflection
+
+Thanks once again for giving me such a great opportunity to learn and grow as a developer. Working untimed on this challege allowed me to dig in and build a foundation in Ruby, Rails, and rspec. Starting out as a neophyte in these domains, I've tried to keep a beginner's mindset as I discover and fill in new gaps in my understanding. It's been quite inspiring. Rails is truly a formidable framework, and the body of expertise the community has built up made giving myself a crash course not just feasible but fun.
+
+I really appreciate how the challenge is structured in terms of increasing complexity. Over the course of the project, I think I made and then learned how to fix most of the common beginner errors. It was extremely gratifying to go from "The db sure is responding awfully slow," to "Oh, that's called a n + 1 bug," to fixing it with included associations.
+
+I'm still learning. I'd like to sort out any other db query related issues that might still remain (I've heard the bullet gem could help identify slow methods in testing). I'm sure I've also made some stylistic blunders. That said, I look forward to learning how to write more elegant, readable, maintainable code. In the meantime, I've used rubocop to fix the most egregious of formatting gaffes.
+
+One of the big differences between this week's submission and last's is that I've wrapped my head a bit more around testing. I feel more confident now mocking and stubbing functions, and was delighted to experience how the need to write concise, readable tests pushed me to go back and refactor code. For example, changing some of the creative_quality methods to accept keyword parameters made testing much more straightforward and made the code more readable to boot. Very satisfying!
+
+## Code Improvements
+
+One thing I noticed when posting my repo: there are some recent security vulnerabilities that get tagged by github. Probably not an issue, since this code isn't really destined to go live, but updating the yarn.lock with the suggested dependencies was a pretty easy fix.
+
 ![C∆ Logo](public/screenshots/Logo.png)
 
 # IDEO Creative Difference Rails Challenge
