@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ApplicationHelper
   def mock_creative_quality_scores
     scores = [67, -25, 50]

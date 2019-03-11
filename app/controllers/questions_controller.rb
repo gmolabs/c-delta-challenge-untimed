@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class QuestionsController < ApplicationController
   def show
     @question = Question.includes(:question_choices).find(params[:id])

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreativeQualitiesController < ApplicationController
   include ApplicationHelper
   def index

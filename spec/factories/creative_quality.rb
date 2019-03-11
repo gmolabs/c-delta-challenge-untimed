@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :creative_quality do
     name { Faker::Company.buzzword }

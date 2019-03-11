@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 ruby '2.4.3'
 
@@ -26,8 +28,8 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'pry-rails'
-  gem 'rspec-rails'
   gem 'rspec'
+  gem 'rspec-rails'
 end
 
 group :development do

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateCreativeQualities < ActiveRecord::Migration[5.0]
   def change
     create_table :creative_qualities do |t|

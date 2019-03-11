@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class QuestionChoice < ApplicationRecord
   belongs_to :question, inverse_of: :question_choices
   belongs_to :creative_quality

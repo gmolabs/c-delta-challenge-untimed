@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 purpose = CreativeQuality.create(
   name: 'Purpose',
   description: 'The degree to which there is alignment about a meaningful change that leadership and employees want to make in the world. Scoring high on purpose requires that the purpose is clear, inspires passion in employees, and helps to inform most major decisions.',
@@ -16,7 +18,7 @@ collaboration = CreativeQuality.create(
 
 questions_attributes = [
   {
-    title: "If you had to be candid, how would you describe your company culture?",
+    title: 'If you had to be candid, how would you describe your company culture?',
     position: 0,
     question_choices_attributes: [
       { text: 'Energizing', creative_quality: empowerment, score: 4 },
@@ -34,7 +36,7 @@ questions_attributes = [
     ]
   },
   {
-    title: "Finish this sentence: My boss tends to ...",
+    title: 'Finish this sentence: My boss tends to ...',
     position: 2,
     question_choices_attributes: [
       { text: 'Take Credit', creative_quality: empowerment, score: -1 },
@@ -51,7 +53,7 @@ questions_attributes = [
     ]
   },
   {
-    title: "When developing and implementing solutions, how do different roles tend to work together?",
+    title: 'When developing and implementing solutions, how do different roles tend to work together?',
     position: 4,
     question_choices_attributes: [
       { text: 'In Parallel—different functions work at the same time to complete?', creative_quality: collaboration, score: 7 },
