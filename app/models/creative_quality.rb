@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CreativeQuality < ApplicationRecord
-  has_many :question_choices
+  has_many :question_choices, inverse_of: :creative_quality
 
   validates :name, :description, :color, presence: true
 
