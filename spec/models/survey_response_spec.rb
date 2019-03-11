@@ -26,19 +26,21 @@ describe SurveyResponse do
   end
 
   describe '#raw_score' do
-    let(:survey_response) { build(:survey_response) }
-    it 'should add all the answers scores for a quality' do
-      foo_quality = build(:creative_quality)
-      foo_answer = double('foo answer')
-      foo_answer_two = double('foo answer two')
-      foo_answer_three = double('foo answer three')
-      bar_answer = double('bar answer')
-      allow(foo_answer).to receive(:score_for).with(foo_quality).and_return(3)
-      allow(foo_answer_two).to receive(:score_for).with(foo_quality).and_return(2)
-      allow(foo_answer_three).to receive(:score_for).with(foo_quality).and_return(-1)
-      allow(bar_answer).to receive(:score_for).with(foo_quality).and_return(0)
-      expect(survey_response).to receive(:answers).and_return([foo_answer, foo_answer_two, foo_answer_three, bar_answer])
-      expect(survey_response.raw_score(foo_quality)).to eq(4)
+    context 'when answers have different qualities and scores' do
+      let(:survey_response) { build(:survey_response) }
+      it 'should sum all answers\' scores for a given quality in a survey_response' do
+        foo_quality = build(:creative_quality)
+        foo_answer = double('foo answer')
+        foo_answer_two = double('foo answer two')
+        foo_answer_three = double('foo answer three')
+        bar_answer = double('bar answer')
+        allow(foo_answer).to receive(:score_for).with(foo_quality).and_return(3)
+        allow(foo_answer_two).to receive(:score_for).with(foo_quality).and_return(2)
+        allow(foo_answer_three).to receive(:score_for).with(foo_quality).and_return(-1)
+        allow(bar_answer).to receive(:score_for).with(foo_quality).and_return(0)
+        expect(survey_response).to receive(:answers).and_return([foo_answer, foo_answer_two, foo_answer_three, bar_answer])
+        expect(survey_response.raw_score(foo_quality)).to eq(4)
+      end
     end
   end
 
