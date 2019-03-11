@@ -18,6 +18,13 @@
 
     <hr>
 
+    <% CreativeQuality.all.each do |quality| %>
+      <strong><%= quality.name %></strong><br>
+        <ul>
+          <li><%= "Raw score: #{@survey_response.raw_score(quality)}"%></li>
+        </ul>
+    <% end %>
+
     <% @survey_response.answers.each do |answer| %>
       <%= render 'questions/header', question: answer.question %>
 
