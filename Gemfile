@@ -11,7 +11,7 @@ end
 gem 'rails', '~> 5.1.6'
 gem 'sqlite3', '~> 1.3', '< 1.4'
 
-gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap-sass', '~> 3.4.1'
 gem 'bootstrap_form'
 gem 'bootswatch-rails'
 gem 'jquery-rails'
