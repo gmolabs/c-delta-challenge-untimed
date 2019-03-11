@@ -29,4 +29,19 @@ describe CreativeQuality do
       expect(bar_quality.max_score([foo_question, bar_question])).to eq(10)
     end
   end
+  
+
+  describe '#normalized_score' do
+    let(:my_creative_quality) { build(:creative_quality) }
+    it 'should return the normalized score for this creative quality' do
+      expect(my_creative_quality.normalized_score(0, 100)).to eq(0)
+      expect(my_creative_quality.normalized_score(100, 100)).to eq(100)
+      expect(my_creative_quality.normalized_score(-100, 100)).to eq(-100)
+      expect(my_creative_quality.normalized_score(-50, 100)).to eq(-50)
+    end
+    it 'should clamp to (-100 to 100) range' do
+      expect(my_creative_quality.normalized_score(-200, 100)).to eq(-100)
+      expect(my_creative_quality.normalized_score(200, 100)).to eq(100)
+    end
+  end
 end
