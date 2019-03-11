@@ -32,15 +32,19 @@ describe CreativeQuality do
 
   describe '#normalized_score' do
     let(:my_creative_quality) { build(:creative_quality) }
-    it 'should return the normalized score for this creative quality' do
-      expect(my_creative_quality.normalized_score(my_raw: 0, my_max: 100)).to eq(0)
-      expect(my_creative_quality.normalized_score(my_raw: 100, my_max: 100)).to eq(100)
-      expect(my_creative_quality.normalized_score(my_raw: -100, my_max: 100)).to eq(-100)
-      expect(my_creative_quality.normalized_score(my_raw: -50, my_max: 100)).to eq(-50)
+    context 'when the raw score is in the range of the maximum and its negative value' do
+      it 'should return the normalized score for this creative quality' do
+        expect(my_creative_quality.normalized_score(my_raw: 0, my_max: 100)).to eq(0)
+        expect(my_creative_quality.normalized_score(my_raw: 100, my_max: 100)).to eq(100)
+        expect(my_creative_quality.normalized_score(my_raw: -100, my_max: 100)).to eq(-100)
+        expect(my_creative_quality.normalized_score(my_raw: -50, my_max: 100)).to eq(-50)
+      end
     end
-    it 'should clamp to (-100 to 100) range' do
-      expect(my_creative_quality.normalized_score(my_raw: -200, my_max: 100)).to eq(-100)
-      expect(my_creative_quality.normalized_score(my_raw: 200, my_max: 100)).to eq(100)
+    context 'when the raw score is outside the range of the maximum and its negative value' do
+      it 'should clamp to (-100 to 100) range' do
+        expect(my_creative_quality.normalized_score(my_raw: -200, my_max: 100)).to eq(-100)
+        expect(my_creative_quality.normalized_score(my_raw: 200, my_max: 100)).to eq(100)
+      end
     end
   end
 
