@@ -28,10 +28,13 @@
               <% if question_choice == answer.question_choice %>
                 <strong>
                   <%= question_choice.text %>
+                  <br>
+                    <%="#{question_choice.creative_quality.name}: #{question_choice.score} " %>
                 </strong>
               <% else %>
                 <span class="text-muted">
                   <%= question_choice.text %>
+                  </span>
                 </span>
               <% end %>
             </td>
