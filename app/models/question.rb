@@ -6,4 +6,9 @@ class Question < ApplicationRecord
   validates :title, presence: true
 
   accepts_nested_attributes_for(:question_choices)
+
+  def max_for(quality)
+    question_choices.max_by { |choice| choice.score_for(quality) }
+                    .score_for(quality)
+  end
 end

@@ -25,7 +25,7 @@ describe SurveyResponse do
     end
   end
 
-    describe '#raw_score' do
+  describe '#raw_score' do
     let(:survey_response) { build(:survey_response) }
     it 'should add all the answers scores for a quality' do
       foo_quality = build(:creative_quality)
