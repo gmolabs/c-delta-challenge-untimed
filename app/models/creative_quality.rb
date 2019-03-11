@@ -10,7 +10,9 @@ class CreativeQuality < ApplicationRecord
     questions.sum { |q| q.max_for(self) }
   end
 
-  def normalized_score(my_raw = raw_total, my_max = max_total)
+  def normalized_score(my_raw = nil, my_max = nil)
+  	my_raw.nil? ? raw_total : my_raw
+  	my_max.nil? ? max_total : my_max
     (my_raw.fdiv(my_max) * 100.0).to_i.clamp(-100, 100)
   end
 end
