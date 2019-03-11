@@ -29,12 +29,15 @@
                 <strong>
                   <%= question_choice.text %>
                   <br>
+                  <span class=<%= question_choice.score > 0 ? "text-success" :
+                                  question_choice.score == 0 ? "text-primary" :
+                                  "text-danger" %>>
                     <%="#{question_choice.creative_quality.name}: #{question_choice.score} " %>
+                  </span>
                 </strong>
               <% else %>
                 <span class="text-muted">
                   <%= question_choice.text %>
-                  </span>
                 </span>
               <% end %>
             </td>
