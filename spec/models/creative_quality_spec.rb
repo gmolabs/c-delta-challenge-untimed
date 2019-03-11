@@ -25,22 +25,22 @@ describe CreativeQuality do
       bar_question_choice_two = build(:question_choice, score: 5, creative_quality: bar_quality)
       allow(foo_question).to receive(:question_choices).and_return([foo_question_choice, bar_question_choice, foo_question_choice_two, bar_question_choice_two])
       allow(bar_question).to receive(:question_choices).and_return([foo_question_choice, bar_question_choice, foo_question_choice_two, bar_question_choice_two])
-      expect(my_creative_quality.max_score([foo_question, bar_question])).to eq(40)
-      expect(bar_quality.max_score([foo_question, bar_question])).to eq(10)
+      expect(my_creative_quality.max_score(questions: [foo_question, bar_question])).to eq(40)
+      expect(bar_quality.max_score(questions: [foo_question, bar_question])).to eq(10)
     end
   end
 
   describe '#normalized_score' do
     let(:my_creative_quality) { build(:creative_quality) }
     it 'should return the normalized score for this creative quality' do
-      expect(my_creative_quality.normalized_score(0, 100)).to eq(0)
-      expect(my_creative_quality.normalized_score(100, 100)).to eq(100)
-      expect(my_creative_quality.normalized_score(-100, 100)).to eq(-100)
-      expect(my_creative_quality.normalized_score(-50, 100)).to eq(-50)
+      expect(my_creative_quality.normalized_score(my_raw: 0, my_max: 100)).to eq(0)
+      expect(my_creative_quality.normalized_score(my_raw: 100, my_max: 100)).to eq(100)
+      expect(my_creative_quality.normalized_score(my_raw: -100, my_max: 100)).to eq(-100)
+      expect(my_creative_quality.normalized_score(my_raw: -50, my_max: 100)).to eq(-50)
     end
     it 'should clamp to (-100 to 100) range' do
-      expect(my_creative_quality.normalized_score(-200, 100)).to eq(-100)
-      expect(my_creative_quality.normalized_score(200, 100)).to eq(100)
+      expect(my_creative_quality.normalized_score(my_raw: -200, my_max: 100)).to eq(-100)
+      expect(my_creative_quality.normalized_score(my_raw: 200, my_max: 100)).to eq(100)
     end
   end
 
@@ -51,7 +51,7 @@ describe CreativeQuality do
       bar_survey = build(:survey_response)
       allow(foo_survey).to receive(:raw_score).and_return 7
       allow(bar_survey).to receive(:raw_score).and_return 100
-      expect(my_creative_quality.raw_total([foo_survey, bar_survey])).to eq(107)
+      expect(my_creative_quality.raw_total(surveys: [foo_survey, bar_survey])).to eq(107)
     end
   end
 
@@ -59,9 +59,9 @@ describe CreativeQuality do
     let(:my_creative_quality) { build(:creative_quality) }
     it 'should return the maximum summed score for this creative quality across all surveys' do
       allow(my_creative_quality).to receive(:max_score).and_return(8)
-      expect(my_creative_quality.max_total(0)).to eq(0)
-      expect(my_creative_quality.max_total(1)).to eq(8)
-      expect(my_creative_quality.max_total(9)).to eq(72)
+      expect(my_creative_quality.max_total(n_surveys: 0)).to eq(0)
+      expect(my_creative_quality.max_total(n_surveys: 1)).to eq(8)
+      expect(my_creative_quality.max_total(n_surveys: 9)).to eq(72)
     end
   end
 end
