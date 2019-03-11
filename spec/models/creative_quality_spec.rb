@@ -44,7 +44,6 @@ describe CreativeQuality do
     end
   end
 
-
   describe '#raw_total' do
     let(:my_creative_quality) { build(:creative_quality) }
     it 'should return the total score across all surveys for this creative quality' do
