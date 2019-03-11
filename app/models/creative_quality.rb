@@ -6,7 +6,7 @@ class CreativeQuality < ApplicationRecord
   validates :name, :description, :color, presence: true
 
   def max_score(questions = nil)
-    questions.nil? ? Question.all : questions
+    questions.nil? ? questions = Question.all : questions
     questions.sum { |q| q.max_for(self) }
   end
 end

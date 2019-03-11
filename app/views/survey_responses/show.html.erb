@@ -22,6 +22,7 @@
       <strong><%= quality.name %></strong><br>
         <ul>
           <li><%= "Raw score: #{@survey_response.raw_score(quality)}"%></li>
+          <li><%= "Max score: #{quality.max_score}"%></li>
         </ul>
     <% end %>
 
