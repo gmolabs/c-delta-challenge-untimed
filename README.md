@@ -1,6 +1,6 @@
 ## Reflection
 
-Thanks once again for giving me such a great opportunity to learn and grow as a developer. Working untimed on this challege allowed me to dig in and build a foundation in Ruby, Rails, and rspec. Starting out as a neophyte in these domains, I've tried to keep a beginner's mindset as I discover and fill in new gaps in my understanding. It's been quite inspiring. Rails is truly a formidable framework, and the body of expertise the community has built up made giving myself a crash course not just feasible but fun.
+Thanks once again for giving me such a great opportunity to learn and grow as a developer. Working untimed on this challenge allowed me to dig in and build a foundation in Ruby, Rails, and rspec. Starting out as a neophyte in these domains, I've tried to keep a beginner's mindset as I discover and fill in new gaps in my understanding. It's been quite inspiring. Rails is truly a formidable framework, and the body of expertise the community has built up made giving myself a crash course not just feasible but fun.
 
 I really appreciate how the challenge is structured in terms of increasing complexity. Over the course of the project, I think I made and then learned how to fix most of the common beginner errors. It was extremely gratifying to go from "The db sure is responding awfully slow," to "Oh, that's called a n + 1 bug," to fixing it with included associations.
 
