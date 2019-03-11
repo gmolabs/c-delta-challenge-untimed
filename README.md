@@ -12,6 +12,8 @@ One of the big differences between this week's submission and last's is that I'v
 
 One thing I noticed when posting my repo: there are some recent security vulnerabilities that get tagged by github. Probably not an issue, since this code isn't really destined to go live, but updating the yarn.lock with the suggested dependencies was a pretty easy fix.
 
+Thanks, Heather, and thanks to everyone else involved with the code review. I hope to meet with you soon!
+
 ![C∆ Logo](public/screenshots/Logo.png)
 
 # IDEO Creative Difference Rails Challenge
