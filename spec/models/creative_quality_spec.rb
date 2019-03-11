@@ -44,7 +44,7 @@ describe CreativeQuality do
     end
   end
 
-  
+
   describe '#raw_total' do
     let(:my_creative_quality) { build(:creative_quality) }
     it 'should return the total score across all surveys for this creative quality' do
@@ -53,6 +53,16 @@ describe CreativeQuality do
       allow(foo_survey).to receive(:raw_score).and_return 7
       allow(bar_survey).to receive(:raw_score).and_return 100
       expect(my_creative_quality.raw_total([foo_survey, bar_survey])).to eq(107)
+    end
+  end
+
+  describe '#max_total' do
+    let(:my_creative_quality) { build(:creative_quality) }
+    it 'should return the maximum summed score for this creative quality across all surveys' do
+      allow(my_creative_quality).to receive(:max_score).and_return(8)
+      expect(my_creative_quality.max_total(0)).to eq(0)
+      expect(my_creative_quality.max_total(1)).to eq(8)
+      expect(my_creative_quality.max_total(9)).to eq(72)
     end
   end
 end

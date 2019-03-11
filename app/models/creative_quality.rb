@@ -20,4 +20,9 @@ class CreativeQuality < ApplicationRecord
   	surveys.nil? ? surveys = SurveyResponse.includes(answers: :question_choice).all : surveys
     surveys.sum { |survey| survey.raw_score(self) }
   end
+
+  def max_total(n_surveys = nil)
+  	n_surveys.nil? ? n_surveys = SurveyResponse.count : n_surveys
+    max_score * n_surveys
+  end
 end
