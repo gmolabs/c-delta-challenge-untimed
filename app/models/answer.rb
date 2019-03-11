@@ -8,4 +8,5 @@ class Answer < ApplicationRecord
   validates :survey_response, presence: true
 
   delegate :question, to: :question_choice
+  delegate :score_for, to: :question_choice
 end

@@ -9,4 +9,8 @@ class QuestionChoice < ApplicationRecord
 
   validates :text, :question, :creative_quality, presence: true
   validates :score, numericality: { only_integer: true }
+
+  def score_for(quality)
+    quality == creative_quality ? score : 0
+  end
 end

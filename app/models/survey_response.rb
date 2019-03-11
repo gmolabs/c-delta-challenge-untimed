@@ -15,4 +15,8 @@ class SurveyResponse < ApplicationRecord
   def completed?
     answers_count == Question.count
   end
+
+  def raw_score(quality)
+    answers.sum { |a| a.score_for(quality) }
+  end
 end
